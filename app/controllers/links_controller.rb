@@ -8,30 +8,31 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
 
     if @link.save
-      # Redireciona usando a nova propriedade short_url
-      redirect_to info_link_path(@link.short_url), notice: 'URL encurtada com sucesso!'
+      # Redireciona usando a nova propriedade url_short
+      redirect_to info_link_path(@link.url_short), notice: 'URL encurtada com sucesso!'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def info
-    # Busca no banco de dados pela coluna short_url
-    @link = Link.find_by!(short_url: params[:short_url])
+    # Busca no banco de dados pela coluna url_short
+    @link = Link.find_by!(url_short: params[:url_short])
   end
 
   def redirect
-    # Busca pela short_url
-    @link = Link.find_by!(short_url: params[:short_url])
     
-    # Incrementa a nova coluna click_count
-    @link.increment!(:click_count)
+    @link = Link.find_by!(url_short: params[:url_short])
     
-    redirect_to @link.original_url, allow_other_host: true
+    @link.increment!(:clicks_count)
+      
+    redirect_to @link.url_original, allow_other_host: true
   end
 
   private
+
   def link_params
-    params.require(:link).permit(:original_url)
+    # Permite apenas o envio da url_original pelo formulário
+    params.require(:link).permit(:url_original)
   end
 end

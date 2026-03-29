@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card">
+    <h1>🚀 Informações da URL</h1>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <div class="info-group">
+      <div class="info-item">
+        <strong>URL Original:</strong>
+        <p class="truncate"><%= @link.url_original %></p>
+      </div>
+      <div class="info-item highlight">
+        <strong>Sua URL Encurtada:</strong>
+        <div class="short-link-box">
+          <%= link_to short_redirect_url(@link.url_short), 
+                short_redirect_url(@link.url_short), 
+                target: "_blank", 
+                onclick: "setTimeout(function(){ location.reload(); }, 500);" %>
+        </div>
+      </div>
+      <div class="info-item">
+        <strong>📈 Quantidade de Acessos:</strong>
+        <span class="badge"><%= @link.clicks_count %></span>
+      </div>
+    </div>
+    <div class="actions">
+      <%= link_to "Encurtar outra URL", root_path, class: "btn-primary" %>
+    </div>
+  </div>
+</div>

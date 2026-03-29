@@ -1,10 +1,155 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* Centralização da página */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+}
+
+/* O Cartão */
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 { color: #333; margin-bottom: 1.5rem; }
+
+/* Mensagem de Sucesso */
+.notice {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+/* Organização das informações */
+.info-group { text-align: left; margin-bottom: 2rem; }
+
+.info-item { margin-bottom: 1.2rem; }
+
+.info-item strong { display: block; color: #666; font-size: 0.9rem; margin-bottom: 5px; }
+
+/* Truncar URLs muito longas para não quebrar o layout */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #444;
+}
+
+/* Destaque para o link encurtado */
+.short-link-box {
+  background: #e7f3ff;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px dashed #007bff;
+}
+
+.short-link-box a {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.short-link-box a:hover { text-decoration: underline; }
+
+/* Badge de acessos */
+.badge {
+  background: #333;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Botão */
+.btn-primary {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover { background-color: #0056b3; }
+
+/* Reutilizando a base da resposta anterior e adicionando: */
+
+.subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Estilo do Grupo de Input */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.main-input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box; /* Garante que o padding não quebre a largura */
+}
+
+.main-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+/* Botão de Enviar */
+.btn-submit {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+/* Caixa de Erro */
+.error-box {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #c53030;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.error-box ul {
+  margin: 5px 0 0 20px;
+  font-size: 0.9rem;
+}
