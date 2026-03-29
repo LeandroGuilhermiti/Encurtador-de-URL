@@ -8,6 +8,9 @@ class Link < ApplicationRecord
 
   private
   def generate_url_short
+
+    return if url_short.present?
+
     self.url_short = SecureRandom.alphanumeric(6)
     while Link.exists?(url_short: url_short)
       self.url_short = SecureRandom.alphanumeric(6)
