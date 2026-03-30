@@ -2,13 +2,10 @@
   <div class="card">
     <h1>🔗 Encurtador de URLs</h1>
     <p class="subtitle">Transforme links longos em algo curto e fácil de partilhar.</p>
-
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
-
-    <%= form_with model: @link, url: links_path, local: true, class: "shortener-form" do |form| %>
-      
+    <%= form_with model: @link, url: links_path, local: true, html: { novalidate: true } do |form| %>
       <% if @link.errors.any? %>
         <div class="error-box">
           <p>⚠️ Opa! Verifique os erros abaixo:</p>
@@ -19,7 +16,6 @@
           </ul>
         </div>
       <% end %>
-
       <div class="input-group">
         <%= form.label :url_original, "Cole a sua URL longa aqui:" %>
         <%= form.url_field :url_original, 
@@ -27,7 +23,6 @@
             placeholder: "https://www.exemplo.com/sua-url-muito-longa",
             class: "main-input" %>
       </div>
-
       <div class="actions">
         <%= form.submit "Encurtar URL", class: "btn-submit" %>
       </div>
