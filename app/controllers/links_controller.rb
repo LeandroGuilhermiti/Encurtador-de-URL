@@ -1,4 +1,3 @@
-# app/controllers/links_controller.rb
 class LinksController < ApplicationController
   def new
     @link = Link.new

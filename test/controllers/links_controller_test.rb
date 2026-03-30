@@ -1,4 +1,3 @@
-# test/controllers/links_controller_test.rb
 require "test_helper"
 
 class LinksControllerTest < ActionDispatch::IntegrationTest
